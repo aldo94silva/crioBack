@@ -1,14 +1,13 @@
 package com.crio.api.config;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.transaction.annotation.Transactional;
 import com.crio.api.domain.usuario.Role;
 import com.crio.api.domain.usuario.User;
 import com.crio.api.repositorie.RoleRepository;
 import com.crio.api.repositorie.UserRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.Set;
@@ -22,7 +21,7 @@ public class AdminUserConfig implements CommandLineRunner {
 
     public AdminUserConfig(RoleRepository roleRepository,
                            UserRepository userRepository,
-                           BCryptPasswordEncoder passwordEncoder) {  // Inject the bean here
+                           BCryptPasswordEncoder passwordEncoder) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -50,3 +49,4 @@ public class AdminUserConfig implements CommandLineRunner {
         );
     }
 }
+
