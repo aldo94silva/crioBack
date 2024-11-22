@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, UUID> {
@@ -14,4 +15,8 @@ public interface EnderecoRepository extends JpaRepository<Endereco, UUID> {
 
     @Query("SELECT e FROM Endereco e WHERE e.city LIKE %:city%")
     List<Endereco> findByCityContaining(String city);
+
+    void deleteById(long uuid);
+
+    Optional<Endereco> findById(long uuid);
 }
